@@ -14,7 +14,7 @@ Girlish Glam is a beauty product e-commerce website. It is made using MERN stack
 
 ## Tech Stack
 
-- **Frontend**: React, Redux, Axios, React Router, Material-UI
+- **Frontend**: React, Redux, Axios, React Router
 - **Backend**: Node.js, Express.js, Mongoose, JWT
 - **Database**: MongoDB
 - **Deployment**: Heroku, Vercel, MongoDB Atlas
@@ -76,48 +76,43 @@ Before you start, make sure you have:
 ## API Endpoints
 
 ### User Routes
-- **Register**: `POST /api/users/register`
-- **Login**: `POST /api/users/login`
-- **Get Profile**: `GET /api/users/profile`
-- **Update Profile**: `PUT /api/users/profile`
+- **Register**: `POST /user/signup`
+- **Login**: `POST /user/login`
 
 ### Product Routes
-- **Get Products**: `GET /api/products`
-- **Get Product by ID**: `GET /api/products/:id`
-- **Add Product** (Admin): `POST /api/products`
-- **Update Product** (Admin): `PUT /api/products/:id`
-- **Delete Product** (Admin): `DELETE /api/products/:id`
+- **Get Products**: `GET /product/fetchproduct`
+- **Add Product** (Admin): `POST /product/addproduct`
+- **Delete Product** (Admin): `DELETE /product/removeproduct/:id`
 
-### Order Routes
-- **Place Order**: `POST /api/orders`
-- **Get User Orders**: `GET /api/orders`
-- **Get Order by ID**: `GET /api/orders/:id`
+### Cart Routes
+- **Get cart**: `GET /cart/getcart`
+- **Add Item** : `POST /cart/addcart`
+- **Delete Item** : `POST /cart/removecart`
 
 ## Project Structure
 
 ```
 girlish-glam/
-├── backend/
+├── Backend/
 │   ├── config/
-│   ├── controllers/
+│   ├── middleware/
 │   ├── models/
 │   ├── routes/
-│   ├── middleware/
+│   ├── upload/
 │   ├── .env
-│   ├── server.js
+│   ├── index.js
 │   └── package.json
-└── frontend/
+└── Frontend/
     ├── public/
     ├── src/
-    │   ├── actions/
+    │   ├── assets/
     │   ├── components/
     │   ├── constants/
-    │   ├── reducers/
-    │   ├── screens/
-    │   ├── store/
+    │   ├── context/
     │   ├── App.js
-    │   ├── index.js
-    │   └── package.json
+    │   ├── main.js
+    ├── index.html
+    └── package.json
 ```
 
 ## Contributing
