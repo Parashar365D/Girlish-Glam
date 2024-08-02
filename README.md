@@ -1,7 +1,3 @@
-Sure, here is the content formatted for a `README.md` file:
-
----
-
 # Girlish Glam
 
 Girlish Glam is a beauty product e-commerce website. It is made using MERN stack (MongoDB, ExpressJS, ReactJS, NodeJS). User can view, search and buy products whereas admin will be able to manage the listing of products.
