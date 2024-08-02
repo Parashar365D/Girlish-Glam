@@ -2,6 +2,9 @@
 
 Girlish Glam is a beauty product e-commerce website. It is made using MERN stack (MongoDB, ExpressJS, ReactJS, NodeJS). User can view, search and buy products whereas admin will be able to manage the listing of products.
 
+# Preview
+https://girlish-glam.onrender.com
+
 ## Features
 
 - User registration and login
