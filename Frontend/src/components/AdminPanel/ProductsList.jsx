@@ -17,7 +17,7 @@ function ProductsList() {
     // Fetch Product
     const fetchProduct = async () => {
         try {
-            const response = await fetch('http://localhost:5000/product/fetchproduct');
+            const response = await fetch('https://girlish-glam.onrender.com/product/fetchproduct');
             const result = await response.json();
             if (result.success) {
                 setAllProduct(result.data);
@@ -36,7 +36,7 @@ function ProductsList() {
     // Remove Product
     const removeProduct = async (id) => {
         try {
-            const removeResponse = await fetch(`http://localhost:5000/product/removeproduct/${id}`, {
+            const removeResponse = await fetch(`https://girlish-glam.onrender.com/product/removeproduct/${id}`, {
                 method: 'DELETE',
                 headers: {
                     Accept: 'application/json',
