@@ -1,0 +1,8 @@
+{
+  "version": 2,
+  "env": {
+    "DATABASE": "mongodb+srv://parashar365d:Print(365)@girlish-glam.wpkqfmv.mongodb.net/E-Store?retryWrites=true&w=majority&appName=Girlish-Glam",
+    "JWT_SECRET": "userIdentity"
+  }
+}
+
