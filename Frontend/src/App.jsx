@@ -5,7 +5,6 @@ import Store from './components/Store';
 import Shop from './components/Shop';
 import Contact from './components/Contact';
 import Login from './components/Login';
-import User from './components/User';
 import Footer from './components/Footer';
 import Cart from "./components/Cart";
 import Page404 from './components/Page404';
@@ -21,7 +20,6 @@ function App() {
         <Route path="/shop" element={<Shop />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/user/:id" element={<User />} />
         <Route path="/product/:id" element={<SingleProductPage />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/admin/365D" element={<Admin />} />
