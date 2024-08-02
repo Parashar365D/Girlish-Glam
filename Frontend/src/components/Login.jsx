@@ -22,7 +22,7 @@ function Login() {
   const logInHandle = async (e) => {
     e.preventDefault();
     try {
-        const response = await fetch('https://girlish-glam.onrender.com/user/login', {
+        const response = await fetch('https://girlish-glam-server.onrender.com/user/login', {
             method: 'POST',
             headers: {
                 Accept: 'application/json',
@@ -52,7 +52,7 @@ function Login() {
   const signUpHandle = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('https://girlish-glam.onrender.com/user/signup', {
+      const response = await fetch('https://girlish-glam-server.onrender.com/user/signup', {
         method: 'POST',
         headers: {
           Accept: 'application/json',

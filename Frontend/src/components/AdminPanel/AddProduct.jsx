@@ -32,7 +32,7 @@ function AddProduct() {
         formData.append('product', productDetail.image);
 
         try {
-            const uploadResponse = await fetch('https://girlish-glam.onrender.com/product/upload', {
+            const uploadResponse = await fetch('https://girlish-glam-server.onrender.com/product/upload', {
                 method: 'POST',
                 body: formData,
             });
@@ -42,7 +42,7 @@ function AddProduct() {
             if (uploadResult.success) {
                 const product = { ...productDetail, image: uploadResult.image_url };
 
-                const productResponse = await fetch('https://girlish-glam.onrender.com/product/addproduct', {
+                const productResponse = await fetch('https://girlish-glam-server.onrender.com/product/addproduct', {
                     method: 'POST',
                     headers: {
                         Accept: 'application/json',
