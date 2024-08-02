@@ -83,6 +83,7 @@ router.get('/fetchproduct', async (req, res) => {
     }
 });
 
+// Route to fetch all products using api http://localhost:5000/product/removeproduct/:id
 router.delete('/removeproduct/:id', async (req, res) => {
     try {
         const { id } = req.params;

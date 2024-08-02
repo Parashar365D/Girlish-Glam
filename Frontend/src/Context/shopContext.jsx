@@ -19,7 +19,7 @@ function ShopProvider({ children }) {
 useEffect(() => {
   const fetchProducts = async () => {
     try {
-      const response = await fetch('http://localhost:5000/product/fetchproduct');
+      const response = await fetch('https://girlish-glam.onrender.com/product/fetchproduct');
       const result = await response.json();
       if (result.success && Array.isArray(result.data)) {
         setAllProducts(result.data);
@@ -35,7 +35,7 @@ useEffect(() => {
   const fetchCartItems = async () => {
     if (localStorage.getItem('auth-token')) {
       try {
-        const response = await fetch('http://localhost:5000/cart/getcart', {
+        const response = await fetch('https://girlish-glam.onrender.com/cart/getcart', {
           method: 'GET',
           headers: {
             'Accept': 'application/json',
@@ -66,7 +66,7 @@ useEffect(() => {
 const addToCart = async (productId, quantity = 1) => {
   if (localStorage.getItem('auth-token')) {
       try {
-          const response = await fetch('http://localhost:5000/cart/addcart', {
+          const response = await fetch('https://girlish-glam.onrender.com/cart/addcart', {
               method: 'POST',
               headers: {
                   'Accept': 'application/json',
@@ -94,7 +94,7 @@ const addToCart = async (productId, quantity = 1) => {
 const removeFromCart = async (productId, quantity = 1) => {
   if (localStorage.getItem('auth-token')) {
     try {
-      const response = await fetch('http://localhost:5000/cart/removecart', {
+      const response = await fetch('https://girlish-glam.onrender.com/cart/removecart', {
         method: 'POST',
         headers: {
           'Accept': 'application/json',
@@ -122,7 +122,7 @@ const removeFromCart = async (productId, quantity = 1) => {
 const clearCart = async (id) => {
   if (localStorage.getItem('auth-token')) {
     try {
-      const response = await fetch('http://localhost:5000/cart/clearcart', {
+      const response = await fetch('https://girlish-glam.onrender.com/cart/clearcart', {
         method: 'POST',
         headers: {
           'Accept': 'application/json',
