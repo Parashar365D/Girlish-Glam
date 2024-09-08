@@ -9,9 +9,7 @@ import Footer from './components/Footer';
 import Cart from './components/Cart';
 import Page404 from './components/Page404';
 import SingleProductPage from './components/SingleProductPage';
-
-// Lazy load the Admin component
-const Admin = React.lazy(() => import('./components/AdminPanel/Admin'));
+import Admin from './components/AdminPanel/Admin';
 
 function App() {
   return (
