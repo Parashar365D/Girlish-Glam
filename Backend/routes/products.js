@@ -12,12 +12,15 @@ const __dirname = path.dirname(__filename);
 
 // Configure multer to use the defined upload directory
 const storage = multer.diskStorage({
-    destination: path.join(__dirname, '../upload/images'),
-    filename: (file, cb) => {
+    destination: (req, file, cb) => {
+        // Ensure the upload directory exists or create it if necessary
+        const uploadDir = path.join(__dirname, '../upload/images');
+        cb(null, uploadDir);
+    },
+    filename: (req, file, cb) => {
         cb(null, `${file.fieldname}_${Date.now()}${path.extname(file.originalname)}`);
     }
 });
-
 const upload = multer({ storage: storage });
 
 // Serve static files from the upload directory
@@ -28,7 +31,7 @@ router.post('/upload', upload.single('product'), (req, res) => {
     const port = process.env.PORT
     res.json({
         success: 1,
-        image_url: `https://girlish-glam-server.onrender.com/product/images/${req.file.filename}`,
+        image_url: `http://localhost:5000/images/${req.file.filename}`,
     });
 });
 
