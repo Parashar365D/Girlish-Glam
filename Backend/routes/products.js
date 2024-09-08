@@ -31,7 +31,7 @@ router.post('/upload', upload.single('product'), (req, res) => {
     const port = process.env.PORT
     res.json({
         success: 1,
-        image_url: `http://localhost:5000/images/${req.file.filename}`,
+        image_url: `https://girlish-glam.onrender.com/product/images/${req.file.filename}`,
     });
 });
 
