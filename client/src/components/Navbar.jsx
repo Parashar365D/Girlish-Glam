@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Link, NavLink, useNavigate, useSearchParams } from 'react-router-dom';
 import Logo from "../assets/Logo.png";
 import { useDispatch, useSelector } from 'react-redux';
-import { logoutUser } from '../store/auth-slice';
+import { logoutUser, resetToken } from '../store/auth-slice';
 import { Toast } from './ui';
 import { searchProduct } from '../store/search-slice';
 
@@ -46,13 +46,14 @@ function Navbar() {
         e.preventDefault();
         if (isAuthenticated) {
             try {
-                const response = await dispatch(logoutUser()).unwrap();
+                dispatch(resetToken());
+                sessionStorage.clear();
                 setShowDropdown(false);
-                Toast({ type: 'success', message: response?.message || 'Logout successful' });
+                Toast({ type: 'success', message: 'Logout successful' });
                 navigate('/');
             } catch (error) {
                 setShowDropdown(false);
-                Toast({ type: 'error', message: error?.message || 'Failed to logout. Please try again.' });
+                Toast({ type: 'error', message: 'Failed to logout. Please try again.' });
             }
         } else {
             setShowDropdown(false);

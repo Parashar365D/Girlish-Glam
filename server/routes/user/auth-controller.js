@@ -36,7 +36,7 @@ const registerUser = async (req, res) => {
 
         const authtoken = jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: '1h' });
         
-        res.cookie("token", authtoken, { httpOnly: true, secure: true, maxAge: 3600000 });
+        // res.cookie("token", authtoken, { httpOnly: true, secure: true, maxAge: 3600000 });
         
         res.status(200).json({ success: true, authtoken, message: "Registration Successful" });
     } catch (error) {
@@ -66,9 +66,9 @@ const loginUser = async (req, res) => {
         const payload = { user: { id: user._id, role: user.role, email: user.email, name: user.name } };
         const authtoken = jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: '1h' });
 
-        res.cookie("token", authtoken, { httpOnly: true, secure: true, maxAge: 3600000 });
+        // res.cookie("token", authtoken, { httpOnly: true, secure: true, maxAge: 3600000 });
 
-        res.status(200).json({ success: true, message: "Login Successful" });
+        res.status(200).json({ success: true, message: "Login Successful", authtoken });
     } catch (error) {
         res.status(500).json({ success: false, error: "Internal Server Error" });
     }
@@ -80,7 +80,8 @@ const logoutUser = (req, res) => {
 };
 
 const fetchUser = (req, res, next) => {
-    const token = req.cookies.token;
+    const authHeader = req.headers['authorization'];
+    const token = authHeader && authHeader.split(' ')[1];
     if (!token) {
         return res.status(401).send({ error: 'Please authenticate using a valid token' });
     }
