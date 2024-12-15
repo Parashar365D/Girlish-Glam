@@ -36,7 +36,7 @@ const registerUser = async (req, res) => {
 
         const authtoken = jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: '1h' });
         
-        res.cookie("token", authtoken, { httpOnly: true, secure: false, maxAge: 3600000 });
+        res.cookie("token", authtoken, { httpOnly: true, secure: true, maxAge: 3600000 });
         
         res.status(200).json({ success: true, authtoken, message: "Registration Successful" });
     } catch (error) {
@@ -66,7 +66,7 @@ const loginUser = async (req, res) => {
         const payload = { user: { id: user._id, role: user.role, email: user.email, name: user.name } };
         const authtoken = jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: '1h' });
 
-        res.cookie("token", authtoken, { httpOnly: true, secure: false, maxAge: 3600000 });
+        res.cookie("token", authtoken, { httpOnly: true, secure: true, maxAge: 3600000 });
 
         res.status(200).json({ success: true, message: "Login Successful" });
     } catch (error) {
@@ -75,7 +75,7 @@ const loginUser = async (req, res) => {
 };
 
 const logoutUser = (req, res) => {
-    res.clearCookie('token', { httpOnly: true, secure: false });
+    res.clearCookie('token', { httpOnly: true, secure: true });
     res.status(200).json({ success: true, message: 'Logged out successfully' });
 };
 
